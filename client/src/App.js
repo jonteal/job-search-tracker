@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import Wishlist from './components/Wishlist/Wishlist';
 import Pending from './components/Pending/Pending';
@@ -38,7 +38,7 @@ function App() {
       <Router>
         <div>
           {/* <StoreProvider> */}
-            {/* <Navbar /> */}
+            <Navbar />
               <Switch>
                 <Route exact path='/home' component={Dashboard} />
                 <Route exact path='/wishlist' component={Wishlist} />
