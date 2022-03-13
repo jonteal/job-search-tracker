@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./addapp.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
 
 const AddApp = () => {
+
+    const [companyName, setCompanyName] = useState('');
+    const [position, setPosition] = useState('');
+    const [dateApplied, setDateApplied] = useState('');
+    const [type, setType] = useState('Remote');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [payRange, setPayRange] = useState('');
+    const [nextStep, setNextStep] = useState('Follow up');
+    const [followUpDate, setFollowUpDate] = useState('');
+    const [feel, setFeel] = useState('');
 
     // const handleSubmit = async (event) => {
     //     event.preventDefault();
@@ -99,6 +112,19 @@ const AddApp = () => {
 
             {/* Data Picker input component here */}
             <h5>Follow up Date</h5>
+            <DatePicker selected={followUpDate} onChange={(date) => setFollowUpDate(date)} />
+
+
+            <br />
+
+            <select>
+                <option>
+                    Your level of interest
+                </option>
+                <option>Somewhat interested </option>
+                <option>Very interested</option>
+                <option>Really want the job</option>
+            </select>
 
             <br />
 
