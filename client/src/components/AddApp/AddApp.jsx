@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./addapp.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
@@ -17,72 +18,70 @@ const AddApp = () => {
     const [followUpDate, setFollowUpDate] = useState('');
     const [feel, setFeel] = useState('');
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
+    const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
 
-    //     try {
-    //         const { data } = await addApp({
-    //             variables: inputForm,
-    //         })
-    //         window.location.assign('/home');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // const app = { company, position }
 
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
+    };
 
 
     return(
     <div className="addAppContainer">
         <h1>Add an Application!</h1>
 
-        {/* Form that takes in information about company they applied with.
-        Fields to ask about:
-        1. Company Name
-        2. Date Applied
-        3. Remote / Onsite / Hybrid
-        4. Next Steps? Follow Up date? Should we give user option to set their follow up by a metric, such as one week out?
-        5. Contact name (if applicable)
-        6. Should there be an interview requested field that they can added in later?
-        6. If so, post interview notes? */}
-
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
         
+        {/* Company Applied for */}
             <input 
                 className="formInput"
                 type="text" 
+                required
+                // value={company}
+                onChange={(e) => setCompanyName(e.target.value)}
                 name="companyName"
                 placeholder="Company Name" 
             />
             
             <br />
 
+        {/* Position Applied for */}
             <input 
                 className="formInput"
                 type="text" 
+                required
+                // value={position}
+                onChange={(e) => setPosition(e.target.value)}
                 name="position"
                 placeholder="Position" 
             />
             
             <br />
 
-            {/* Data Picker input component here */}
+        {/* Date Applied */}
             <h5>Date Applied</h5>
+            <DatePicker value={dateApplied} onChange={(date) => setDateApplied(date)} />
 
             <br />
 
         {/* Type of work - Onsite, Remote, or Hybrid */}
-            <select>
+            <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+            >
                 <option>
-                    Type
+                    Type (Pick One)
                 </option>
-                <option>Onsite</option>
-                <option>Remote</option>
-                <option>Hybrid</option>
+                <option value="Onsite">Onsite</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
             </select>
 
             <br />
 
+        {/* City */}
             <input 
                 className="formInput"
                 type="text" 
@@ -92,6 +91,7 @@ const AddApp = () => {
 
             <br />
 
+        {/* State */}
             <input 
                 className="formInput"
                 type="text" 
@@ -101,6 +101,7 @@ const AddApp = () => {
 
             <br />
 
+        {/* Pay Range */}
             <input 
                 className="formInput"
                 type="text" 
@@ -110,7 +111,7 @@ const AddApp = () => {
 
             <br />
 
-            {/* Data Picker input component here */}
+            {/* Follow Up Date */}
             <h5>Follow up Date</h5>
             <DatePicker selected={followUpDate} onChange={(date) => setFollowUpDate(date)} />
 
@@ -119,7 +120,7 @@ const AddApp = () => {
 
             <select>
                 <option>
-                    Your level of interest
+                    Your level of interest (Pick one)
                 </option>
                 <option>Somewhat interested </option>
                 <option>Very interested</option>
@@ -128,9 +129,8 @@ const AddApp = () => {
 
             <br />
 
-            <button className="submitBtn">
-                Submit
-            </button>
+            { !isPending && <button className="submitBtn">Submit</button> }
+            { isPending && <button disabled>Adding application...</button> }
             
         </form>
 
