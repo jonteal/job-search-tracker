@@ -21,10 +21,21 @@ const AddApp = () => {
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // const app = { company, position }
+        const app = { companyName, position, dateApplied, type, city, state, payRange, nextStep, followUpDate, feel }
 
+        setIsPending(true);
+
+        fetch('http://localhost:8000/apps', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(app)
+        }).then(() => {
+            console.log('new app added')
+            setIsPending(false)
+            history.push('/');
+        })
     };
 
 
@@ -39,7 +50,7 @@ const AddApp = () => {
                 className="formInput"
                 type="text" 
                 required
-                // value={company}
+                value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 name="companyName"
                 placeholder="Company Name" 
@@ -52,7 +63,7 @@ const AddApp = () => {
                 className="formInput"
                 type="text" 
                 required
-                // value={position}
+                value={position}
                 onChange={(e) => setPosition(e.target.value)}
                 name="position"
                 placeholder="Position" 
@@ -85,6 +96,9 @@ const AddApp = () => {
             <input 
                 className="formInput"
                 type="text" 
+                required
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 name="city"
                 placeholder="City" 
             />
@@ -95,6 +109,9 @@ const AddApp = () => {
             <input 
                 className="formInput"
                 type="text" 
+                required
+                value={state}
+                onChange={(e) => setState(e.target.value)}
                 name="state"
                 placeholder="State" 
             />
@@ -105,24 +122,44 @@ const AddApp = () => {
             <input 
                 className="formInput"
                 type="text" 
+                value={payRange}
+                onChange={(e) => setPayRange(e.target.value)}
                 name="payRange"
                 placeholder="Pay range (if available)" 
             />
 
             <br />
 
-            {/* Follow Up Date */}
-            <h5>Follow up Date</h5>
-            <DatePicker selected={followUpDate} onChange={(date) => setFollowUpDate(date)} />
-
+            <select
+                value={nextStep}
+                onChange={(e) => setNextStep(e.target.value)}
+            >
+                <option>
+                    Next Steps (Pick one)
+                </option>
+                <option>Follow up</option>
+                <option>Await Response from Company</option>
+                <option>Disregard Job</option>
+            </select>
 
             <br />
 
-            <select>
+
+        {/* Follow Up Date */}
+            <h5>Follow up Date</h5>
+            <DatePicker value={followUpDate} onChange={(date) => setFollowUpDate(date)} />
+
+            <br />
+
+        {/* Level of Interest of Applicant/Client */}
+            <select
+                value={feel}
+                onChange={(e) => setFeel(e.target.value)}
+            >
                 <option>
                     Your level of interest (Pick one)
                 </option>
-                <option>Somewhat interested </option>
+                <option>Somewhat interested</option>
                 <option>Very interested</option>
                 <option>Really want the job</option>
             </select>
