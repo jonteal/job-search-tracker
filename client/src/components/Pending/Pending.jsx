@@ -7,7 +7,7 @@ const Pending = () => {
         <h1>Pending Applications</h1>
 
         <div className="homeBtnContainer">
-            <Link to='/home'><button className="ui primary basic button">Home</button></Link>
+            <Link to='/'><button className="ui primary basic button">Home</button></Link>
         </div>
     </div>
     )

@@ -11,6 +11,8 @@ import Pending from './components/Pending/Pending';
 import Offers from './components/Offers/Offers';
 import Denied from './components/Denied/Denied';
 import AddApp from './components/AddApp/AddApp';
+import NotFound from './components/NotFound/NotFound';
+import CompanyDetails from './components/CompanyDetails/CompanyDetails';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,12 +42,14 @@ function App() {
           {/* <StoreProvider> */}
             <Navbar />
               <Switch>
-                <Route exact path='/home' component={Dashboard} />
+                <Route exact path='/' component={Dashboard} />
                 <Route exact path='/wishlist' component={Wishlist} />
                 <Route exact path='/pending' component={Pending} />
                 <Route exact path='/offers' component={Offers} />
                 <Route exact path='/denials' component={Denied} />
                 <Route exact path='/addapp' component={AddApp} />
+                <Route exact path='/apps/:id' component={CompanyDetails} />
+                <Route path="*" component={NotFound} />
               </Switch>
           {/* </StoreProvider> */}
         </div>
