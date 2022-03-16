@@ -13,13 +13,14 @@
 }
 
 .link {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #26547C;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
     height: auto;
 }
+
 
 .button {
     width: 100%;
@@ -29,6 +30,8 @@
     padding: 20px;
     display: inline-block;
     font-size: large;
+    background-color: #2EC4B6;
+
 }
 
 .addButton {
