@@ -28,6 +28,12 @@ const typeDefs = gql`
     }
 
     type Query {
-        
+        getMe(_id: ID): User
+        user: User
+        getApps: [App]
+        wishList: [App]
+        pending: [App]
+        denials: [App]
+        offers: [App]
     }
 `
