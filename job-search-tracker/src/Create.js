@@ -6,15 +6,15 @@ const Create = () => {
     const [company, setCompany] = useState('');
     const [position, setPosition] = useState('');
     const [dateApplied, setDateApplied] = useState('');
-    const [workLocation, setWorkLocation] = useState('');
+    const [workLocation, setWorkLocation] = useState('-');
     const [followUpDate, setFollowUpDate] = useState('');
     const [contactName, setContactName] = useState('');
-    const [interviewRequested, setInterviewRequested] = useState('');
+    const [interviewRequested, setInterviewRequested] = useState('-');
     const [interviewDate, setInterviewDate] = useState('');
     const [notes, setNotes] = useState('');
 
     return(
-        <div>
+        <div className="create">
             <h2>Add an App</h2>
             <form>
                 {/* Company Name */}
@@ -45,9 +45,10 @@ const Create = () => {
                     value={workLocation}
                     onChange={(e) => setWorkLocation(e.target.value)}
                 >
-                    <option value="Work from Home"></option>
-                    <option value="In Office"></option>
-                    <option value="Hybrid"></option>
+                    <option value="-">-</option>
+                    <option value="Work from Home">Work from Home</option>
+                    <option value="In Office">In Office</option>
+                    <option value="Hybrid">Hybrid</option>
                 </select>
 
                 {/* Follow Up Date */}
@@ -68,8 +69,9 @@ const Create = () => {
                     value={interviewRequested}
                     onChange={(e) => setInterviewRequested(e.target.value)}
                 >
-                    <option value="No"></option>
-                    <option value="Yes"></option>
+                    <option value="-">-</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
                 </select>
                 
                 <label>Interview Date</label>
