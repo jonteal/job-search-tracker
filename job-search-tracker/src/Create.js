@@ -14,6 +14,7 @@ const Create = () => {
     const [interviewRequested, setInterviewRequested] = useState('-');
     const [interviewDate, setInterviewDate] = useState(new Date());
     const [notes, setNotes] = useState('');
+    const [pending, isPending] = useState(false);
 
     return(
         <div className="create">
@@ -92,6 +93,11 @@ const Create = () => {
                     onChange={(e) => setNotes(e.target.value)}
                 >
                 </textarea>
+
+                {/* Add App Button */}
+                { !isPending && <button>Add App</button> }
+                { isPending && <button disabled>Adding app...</button> }
+
 
             </form>
         </div>
