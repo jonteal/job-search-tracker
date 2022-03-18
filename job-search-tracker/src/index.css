@@ -10,6 +10,33 @@
   color: #333;
 }
 
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar h1 {
+  color: #0e4f88;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.navbar a:hover {
+  color: #0e4f88;
+}
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
 
 .create {
@@ -25,7 +52,7 @@
 
 .create h2 {
   font-size: 20px;
-  color: #1917a3;
+  color: #0e4f88;
   margin-bottom: 30px;
 }
 
@@ -39,7 +66,7 @@
 }
 
 .create button {
-  background: #1917a3;
+  background: #0e4f88;
   color: #fff;
   border: 0;
   padding: 8px;

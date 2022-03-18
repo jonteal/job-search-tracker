@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Create = () => {
@@ -10,8 +12,9 @@ const Create = () => {
     const [followUpDate, setFollowUpDate] = useState('');
     const [contactName, setContactName] = useState('');
     const [interviewRequested, setInterviewRequested] = useState('-');
-    const [interviewDate, setInterviewDate] = useState('');
+    const [interviewDate, setInterviewDate] = useState(new Date());
     const [notes, setNotes] = useState('');
+    const [pending, isPending] = useState(false);
 
     return(
         <div className="create">
@@ -37,7 +40,10 @@ const Create = () => {
 
                 {/* Date Applied */}
                 <label>Date Applied</label>
-                {/* Date picker */}
+                <DatePicker 
+                    selected={dateApplied} 
+                    onChange={(Date) => setDateApplied(Date)} 
+                />
 
                 {/* Job Type */}
                 <label>Job Type</label>
@@ -53,7 +59,9 @@ const Create = () => {
 
                 {/* Follow Up Date */}
                 <label>Follow Up Date</label>
-                {/* Date Picker */}
+                <DatePicker 
+                    selected={followUpDate} 
+                    onChange={(Date) => setFollowUpDate(Date)} />
 
                 {/* Contact Name */}
                 <label>Contact Name</label>
@@ -76,6 +84,7 @@ const Create = () => {
                 
                 <label>Interview Date</label>
                 {/* Date Picker */}
+                <DatePicker selected={interviewDate} onChange={(Date) => setInterviewDate(Date)} />
 
                 {/* Post Interview Notes */}
                 <label>Notes</label>
@@ -84,6 +93,11 @@ const Create = () => {
                     onChange={(e) => setNotes(e.target.value)}
                 >
                 </textarea>
+
+                {/* Add App Button */}
+                { !isPending && <button>Add App</button> }
+                { isPending && <button disabled>Adding app...</button> }
+
 
             </form>
         </div>
