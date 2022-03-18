@@ -9,16 +9,16 @@ function App() {
   return (
     <Router>
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <Switch>
-          <Route>
+          <Route exact path='/'>
             <Home />
           </Route>
           <Route exact path='/create'>
             <Create />
           </Route>
-          <Route>
+          <Route exact path='/appdetails'>
             <AppDetails />
           </Route>
         </Switch>
