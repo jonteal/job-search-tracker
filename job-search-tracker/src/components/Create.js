@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Create = () => {
 
-    const [title, setTitle] = useState('');
+    const [company, setCompany] = useState('');
     const [position, setPosition] = useState('');
     const [dateApplied, setDateApplied] = useState('');
     const [workLocation, setWorkLocation] = useState('');
@@ -22,8 +22,8 @@ const Create = () => {
                 <input 
                     type="text"
                     required
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
                 />
 
                 {/* Position Name */}
@@ -65,11 +65,13 @@ const Create = () => {
                 {/* Interview Requested - Checkbox */}
                 <label>Interview Requested</label>
                 <select
-                    type="checkbox"
-
-                ></select>
-
-                {/* Interview Date */}
+                    value={interviewRequested}
+                    onChange={(e) => setInterviewRequested(e.target.value)}
+                >
+                    <option value="No"></option>
+                    <option value="Yes"></option>
+                </select>
+                
                 <label>Interview Date</label>
                 {/* Date Picker */}
 
