@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "company": "Amazon",
+            "position": "Software Developer",
+            "dateApplied": "02/28/2022",
+            "workLocation": "Hybrid",
+            "followUpDate": "03/07/2022",
+            "contactName": "Don Draper",
+            "interviewRequested": "No",
+            "interviewDate": "03/14/2022",
+            "notes": "Follow up with Don in a week."
+        }
+    ]
+}
