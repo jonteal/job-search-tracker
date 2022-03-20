@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+// import { format } from 'date-fns';
+// import dateFormat, { masks } from "dateformat";
+// const now = new Date();
 
 const Create = () => {
 
     const [company, setCompany] = useState('');
     const [position, setPosition] = useState('');
-    const [dateApplied, setDateApplied] = useState('');
+    const [dateApplied, setDateApplied] = useState(new Date());
     const [workLocation, setWorkLocation] = useState('-');
     const [followUpDate, setFollowUpDate] = useState('');
     const [contactName, setContactName] = useState('');
@@ -17,6 +19,13 @@ const Create = () => {
     const [notes, setNotes] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
+
+    // useEffect(() => {
+    //     dateFormat(now);
+    // }, [])
+
+    // console.log(format(new Date(), 'MM/dd/yyyy'))
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -60,8 +69,9 @@ const Create = () => {
                 {/* Date Applied */}
                 <label>Date Applied</label>
                 <DatePicker 
+                    dateFormat="MM/dd/yyyy"
                     selected={dateApplied} 
-                    onChange={(Date) => setDateApplied(Date)} 
+                    onChange={(date) => setDateApplied(date)} 
                 />
 
                 {/* Job Type */}
@@ -79,6 +89,7 @@ const Create = () => {
                 {/* Follow Up Date */}
                 <label>Follow Up Date</label>
                 <DatePicker 
+                    dateFormat="MM/dd/yyyy"
                     selected={followUpDate} 
                     onChange={(Date) => setFollowUpDate(Date)} />
 
@@ -103,7 +114,11 @@ const Create = () => {
                 
                 <label>Interview Date</label>
                 {/* Date Picker */}
-                <DatePicker selected={interviewDate} onChange={(Date) => setInterviewDate(Date)} />
+                <DatePicker disabled={interviewRequested === "No"} 
+                    dateFormat="MM/dd/yyyy"
+                    selected={interviewDate} 
+                    onChange={(Date) => setInterviewDate(Date)} 
+                />
 
                 {/* Post Interview Notes */}
                 <label>Notes</label>

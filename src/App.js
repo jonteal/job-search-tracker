@@ -9,9 +9,9 @@ import NotFound from './NotFound';
 function App() {
   return (
     <Router>
-    <div>
+    <div className='App'>
       <Navbar />
-      <div>
+      <div className='content'>
         <Switch>
           <Route exact path='/'>
             <Home />
