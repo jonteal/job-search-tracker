@@ -2,9 +2,7 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import { format } from 'date-fns';
-// import dateFormat, { masks } from "dateformat";
-// const now = new Date();
+
 
 const Create = () => {
 
@@ -12,19 +10,13 @@ const Create = () => {
     const [position, setPosition] = useState('');
     const [dateApplied, setDateApplied] = useState(new Date());
     const [workLocation, setWorkLocation] = useState('-');
-    const [followUpDate, setFollowUpDate] = useState('');
+    const [followUpDate, setFollowUpDate] = useState(new Date());
     const [contactName, setContactName] = useState('');
     const [interviewRequested, setInterviewRequested] = useState('-');
     const [interviewDate, setInterviewDate] = useState(new Date());
     const [notes, setNotes] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
-
-    // useEffect(() => {
-    //     dateFormat(now);
-    // }, [])
-
-    // console.log(format(new Date(), 'MM/dd/yyyy'))
 
 
     const handleSubmit = (e) => {
@@ -40,7 +32,7 @@ const Create = () => {
         }).then(() => {
             console.log('new app added!')
             setIsPending(false)
-            history.pushState('/');
+            history.push('/');
         })
     }
 
@@ -75,7 +67,7 @@ const Create = () => {
                 />
 
                 {/* Job Type */}
-                <label>Job Type</label>
+                <label>Work Location</label>
                 <select 
                     value={workLocation}
                     onChange={(e) => setWorkLocation(e.target.value)}
