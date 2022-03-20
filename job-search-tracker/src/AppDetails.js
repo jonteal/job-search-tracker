@@ -15,12 +15,21 @@ const AppDetails = () => {
     })
 }
     return(
-        <div>
+        <div className="app-details">
             { isPending && <div>Loading...</div>}
             { error && <div>{ error }</div> }
             { app && (
                 <article>
                     <h2>{ app.company }</h2>
+                    <p>{ app.position }</p>
+                    <p>{ app.dateApplied }</p>
+                    <p>{ app.workLocation }</p>
+                    <p>{ app.followUpDate }</p>
+                    <p>{ app.contactName }</p>
+                    <p>{ app.interviewRequested }</p>
+                    <p>{ app.interviewDate }</p>
+                    <p>{ app.notes }</p>
+
                     <button onClick={handleClick}>delete app</button>
                 </article>
             )}
