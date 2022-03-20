@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -14,12 +15,30 @@ const Create = () => {
     const [interviewRequested, setInterviewRequested] = useState('-');
     const [interviewDate, setInterviewDate] = useState(new Date());
     const [notes, setNotes] = useState('');
-    const [pending, isPending] = useState(false);
+    const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const app = { company, position, dateApplied, workLocation, followUpDate, contactName, interviewRequested, interviewDate, notes }
+    
+        setIsPending(true);
+
+        fetch('http://localhost:8000/apps', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(app)
+        }).then(() => {
+            console.log('new app added!')
+            setIsPending(false)
+            history.pushState('/');
+        })
+    }
 
     return(
         <div className="create">
             <h2>Add an App</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {/* Company Name */}
                 <label>Company Name</label>
                 <input 
