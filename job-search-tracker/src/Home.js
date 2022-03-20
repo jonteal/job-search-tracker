@@ -1,8 +1,9 @@
 import useFetch from "./useFetch";
+import AppList from "./AppList";
 
 const Home = () => {
 
-    const { data: blogs, isPending, error } = useFetch('http://localhost:8000/apps');
+    const { data: apps, isPending, error } = useFetch('http://localhost:8000/apps');
     return(
         <div className="home">
             { error && <div>{ error }</div>}
