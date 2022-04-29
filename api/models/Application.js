@@ -23,7 +23,7 @@ const ApplicationSchema = new mongoose.Schema(
             unique: false,
         },
         interviewRequested: {
-            type: Boolean,
+            type: String,
             required: false,
             unique: false,
         },

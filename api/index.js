@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
 // const userRoute = require('./routes/users');
-// const applicationRoute = require('./routes/applications');
+const applicationsRoute = require('./routes/applications');
 const path = require('path');
 
 dotenv.config();
@@ -22,7 +22,7 @@ mongoose
 
 app.use('/api/auth', authRoute);
 // app.use('/api/users', userRoute);
-// app.use('/api/applications', applicationsRoute);
+app.use('/api/applications', applicationsRoute);
 
 app.listen('5000', () => {
     console.log('Backend is running!');
