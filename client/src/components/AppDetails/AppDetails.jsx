@@ -1,5 +1,5 @@
 import { useParams, useHistory } from "react-router-dom";
-import useFetch from "./useFetch";
+import useFetch from "../../hooks/useFetch";
 
 const AppDetails = () => {
 

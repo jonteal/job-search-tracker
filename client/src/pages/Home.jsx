@@ -1,5 +1,5 @@
-import useFetch from "./useFetch";
-import AppList from "./AppList";
+import useFetch from "../hooks/useFetch";
+import AppList from "../components/AppList/AppList";
 
 const Home = () => {
 
