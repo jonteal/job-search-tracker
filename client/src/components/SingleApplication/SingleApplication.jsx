@@ -77,8 +77,31 @@ export default function SingleApplication() {
                 {updateMode ? (
                     <input 
                         type="text" 
-                        value={}
+                        value={company}
+                        className='singleApplicationCompanyInput'
+                        autoFocus
+                        onChange={(e) => setCompany(e.target.value)}
                     />
+                ) : (
+                    <h1 className="singleApplicationCompany">
+                        {company}
+                        {application.username === user?.username && (
+                            <div>
+                                <button 
+                                    className="singlePostIcon"
+                                    onClick={() => setUpdateMode(true)}
+                                >
+                                    Update
+                                </button>
+                                <button 
+                                    className="singlePostIcon"
+                                    onClick={handleDelete}
+                                >
+                                    Update
+                                </button>
+                            </div>
+                        )}
+                    </h1>
                 )}
             </div>
         </div>
