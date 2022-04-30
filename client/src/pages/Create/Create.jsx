@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
 
 
-const Create = () => {
+export default function Create() {
 
     const [company, setCompany] = useState('');
     const [position, setPosition] = useState('');
@@ -27,7 +27,18 @@ const Create = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newApplication = { company, position, dateApplied, workLocation, followUpDate, contactName, interviewRequested, interviewDate, notes }
+        const newApplication = { 
+            username: user.username, 
+            company, 
+            position, 
+            dateApplied, 
+            workLocation, 
+            followUpDate, 
+            contactName, 
+            interviewRequested, 
+            interviewDate, 
+            notes 
+        }
     
         setIsPending(true);
 
@@ -170,4 +181,4 @@ const Create = () => {
     )
 }
 
-export default Create;
+// export default Create;

@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const ApplicationSchema = new mongoose.Schema(
     {
+        username: {
+            type: String,
+            required: true,
+        },
         company: {
             type: String,
             required: true,
