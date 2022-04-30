@@ -4,11 +4,11 @@ import useFetch from "../../hooks/useFetch";
 const AppDetails = () => {
 
     const { id } = useParams();
-    const { data: app, error, isPending } = useFetch('http://localhost:8000/apps/' + id);
+    const { data: app, error, isPending } = useFetch('http://localhost:5000/apps/' + id);
     const history = useHistory();
 
     const handleClick = () => {
-        fetch('http://localhost:8000/apps/' + app.id, {
+        fetch('http://localhost:5000/apps/' + app.id, {
             method: 'DELETE'
     }).then(() => {
         history.push('/');

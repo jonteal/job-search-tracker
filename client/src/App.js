@@ -6,6 +6,9 @@ import AppDetails from './pages/AppDetails/AppDetails';
 import NotFound from './pages/NotFound/NotFound';
 import Create from './pages/Create/Create';
 import { Context } from './context/Context';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import Settings from './pages/Settings/Settings';
 
 function App() {
   const { user } = useContext(Context);
@@ -15,18 +18,35 @@ function App() {
       <Navbar />
       <div className='content'>
         <Switch>
+
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route exact path='/create'>
-            <Create />
+
+          <Route path='/register'>
+            {user ? <Home /> : <Register />}
           </Route>
+
+          <Route path='/login'>
+            {user ? <Home /> : <Login />}
+          </Route>
+
+          <Route exact path='/create'>
+            {user ? <Create /> : <Register />}
+          </Route>
+
           <Route exact path='/apps/:id'>
             <AppDetails />
           </Route>
+
+          <Route exact path='/settings'>
+            {user ? <Settings /> : <Register />}
+          </Route>
+
           <Route path="*">
             <NotFound />
           </Route>
+
         </Switch>
       </div>
     </div>
