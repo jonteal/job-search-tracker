@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import AppDetails from './components/AppDetails/AppDetails';
+import AppDetails from './pages/AppDetails/AppDetails';
 import NotFound from './pages/NotFound/NotFound';
-import Create from './components/Create/Create';
+import Create from './pages/Create/Create';
+import { Context } from './context/Context';
 
 function App() {
+  const { user } = useContext(Context);
   return (
     <Router>
     <div className='App'>
