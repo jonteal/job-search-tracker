@@ -17,12 +17,17 @@ const ApplicationSchema = new mongoose.Schema(
             required: false,
             unique: false,
         },
-        location: {
+        workLocation: {
             type: String,
             required: false,
             unique: false,
         },
-        contact: {
+        followUpDate: {
+            type: String,
+            required: false,
+            unique: false,
+        },
+        contactName: {
             type: String,
             required: false,
             unique: false,
