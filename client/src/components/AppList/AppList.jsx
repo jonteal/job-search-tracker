@@ -1,19 +1,12 @@
-import { Link } from 'react-router-dom';
+import Application from "../Post/Post";
+import "./Posts.css";
 
-const AppList = ({ apps, company }) => {
-    return(
-        <div className='app-list'>
-            <h2>{ company }</h2>
-            {apps.map((app) => (
-                <div className='app-preview' key={app.id}>
-                    <Link to={`/apps/${app.id}`}>
-                        <h2>{ app.company }</h2>
-                    </Link>
-                </div>
-
-            ))}
-        </div>
-    )
+export default function AppList({ applications }) {
+  return (
+    <div className="apps">
+      {posts.map((p) => (
+        <Post post={p} />
+      ))}
+    </div>
+  );
 }
-
-export default AppList;
