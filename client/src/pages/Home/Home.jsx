@@ -18,28 +18,24 @@
 
 import { useEffect, useState } from "react";
 import AppList from "../../components/AppList/AppList";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import "./Home.css";
 import axios from "axios";
 import { useLocation } from "react-router";
 
 export default function Home() {
-    const [posts, setPosts] = useState([]);
+    const [applications, setApplications] = useState([]);
     const { search } = useLocation();
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            const res = await axios.get("/posts" + search);
-            setPosts(res.data);
+        const fetchApplications = async () => {
+            const res = await axios.get("/applications" + search);
+            setApplications(res.data);
     };
-    fetchPosts();
+    fetchApplications();
     }, [search]);
     return (
         <>
-            <Header />
                 <div className="home">
-                    <Posts posts={posts} />
-                    <Sidebar />
+                    <AppList applications={applications} />
                 </div>
         </>
     );
