@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import { Context } from "../../context/Context";
 
 
 const Create = () => {
@@ -16,6 +18,7 @@ const Create = () => {
     const [interviewDate, setInterviewDate] = useState(new Date());
     const [notes, setNotes] = useState('');
     const [isPending, setIsPending] = useState(false);
+    const { user } = useContext(Context);
     const history = useHistory();
 
 

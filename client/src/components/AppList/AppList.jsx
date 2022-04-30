@@ -1,12 +1,11 @@
-import Application from "../Post/Post";
-import "./Posts.css";
+import Application from "../Application/Application";
 
 export default function AppList({ applications }) {
-  return (
-    <div className="apps">
-      {posts.map((p) => (
-        <Post post={p} />
-      ))}
-    </div>
-  );
+    return (
+        <div className="apps">
+        {applications.map((p) => (
+            <Application post={p} />
+        ))}
+        </div>
+    );
 }
