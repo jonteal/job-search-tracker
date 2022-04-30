@@ -12,6 +12,11 @@ const ApplicationSchema = new mongoose.Schema(
             required: true,
             unique: false,
         },
+        dateApplied: {
+            type: String,
+            required: false,
+            unique: false,
+        },
         location: {
             type: String,
             required: false,
