@@ -164,6 +164,7 @@ export default function Create() {
                 {/* Post Interview Notes */}
                 <label>Notes</label>
                 <textarea
+                    type="text"
                     className="createNotes"
                     placeholder="Notes to yourself..."
                     value={notes}

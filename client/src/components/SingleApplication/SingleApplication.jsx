@@ -128,26 +128,130 @@ export default function SingleApplication() {
                         onChange={(e) => setPosition(e.target.value)}
                     />
                 ) : (
-                    <h1 className="singleApplicationCompany">
-                        {company}
-                        {application.username === user?.username && (
-                            <div>
-                                <button 
-                                    className="singlePostIcon"
-                                    onClick={() => setUpdateMode(true)}
-                                >
-                                    Update
-                                </button>
-                                <button 
-                                    className="singlePostIcon"
-                                    onClick={handleDelete}
-                                >
-                                    Update
-                                </button>
-                            </div>
-                        )}
-                    </h1>
+                    <p className="singleApplicationPosition">
+                        {position}
+                    </p>
                 )}
+
+                {/* UPDATE - dateApplied */}
+                {updateMode ? (
+                    <input 
+                        type="text" 
+                        value={dateApplied}
+                        className='singleApplicationDateAppliedInput'
+                        onChange={(e) => setDateApplied(e.target.value)}
+                    />
+                ) : (
+                    <p className="singleApplicationDateApplied">
+                        {dateApplied}
+                    </p>
+                )}
+
+
+                {/* UPDATE - workLocation */}
+                {updateMode ? (
+                    <input 
+                        type="text" 
+                        value={workLocation}
+                        className='singleApplicationWorkLocationInput'
+                        onChange={(e) => setWorkLocation(e.target.value)}
+                    />
+                ) : (
+                    <p className="singleApplicationWorkLocation">
+                        {workLocation}
+                    </p>
+                )}
+
+
+                {/* UPDATE - followUpDate */}
+                {updateMode ? (
+                    <input 
+                        type="text" 
+                        value={followUpDate}
+                        className='singleApplicationFollowUpDateInput'
+                        onChange={(e) => setFollowUpDate(e.target.value)}
+                    />
+                ) : (
+                    <p className="singleApplicationFollowUpDate">
+                        {followUpDate}
+                    </p>
+                )}
+
+
+                {/* UPDATE - contactName */}
+                {updateMode ? (
+                    <input 
+                        type="text" 
+                        value={contactName}
+                        className='singleApplicationContactNameInput'
+                        onChange={(e) => setContactName(e.target.value)}
+                    />
+                ) : (
+                    <p className="singleApplicationContactName">
+                        {contactName}
+                    </p>
+                )}
+
+
+                {/* UPDATE - interviewRequested */}
+                {updateMode ? (
+                    <select 
+                        value={interviewRequested}
+                        className='singleApplicationInterviewRequestedInput'
+                        onChange={(e) => setInterviewRequested(e.target.value)}
+                    >
+                        <option value="-">-</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                ) : (
+                    <p className="singleApplicationInterviewRequested">
+                        {interviewRequested}
+                    </p>
+                )}
+
+
+                {/* UPDATE - interviewDate */}
+                {updateMode ? (
+                    <input 
+                        disabled={interviewRequested === "No"}
+                        placeholder='Interview Date'
+                        type="text" 
+                        value={interviewDate}
+                        className='singleApplicationInterviewDateInput'
+                        onChange={(e) => setInterviewDate(e.target.value)}
+                    />
+                ) : (
+                    <p className="singleApplicationInterviewDate">
+                        {interviewDate}
+                    </p>
+                )}
+
+
+                {/* UPDATE - interviewDate */}
+                {updateMode ? (
+                    <textarea 
+                        type="text" 
+                        placeholder="Notes to yourself..."
+                        value={notes}
+                        className='singleApplicationNotesInput'
+                        onChange={(e) => setNotes(e.target.value)}
+                    >
+                    </textarea>
+                ) : (
+                    <p className="singleApplicationNotes">
+                        {notes}
+                    </p>
+                )}
+
+
+
+                {updateMode && (
+                    <button className="singleApplicationButton" onClick={handleUpdate}>
+                        Update
+                    </button>
+                )}
+
             </div>
         </div>
     )
