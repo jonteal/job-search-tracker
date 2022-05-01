@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import AppDetails from './pages/AppDetails/AppDetails';
+// import AppDetails from './pages/AppDetails/AppDetails';
 import NotFound from './pages/NotFound/NotFound';
 import Create from './pages/Create/Create';
 import { Context } from './context/Context';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Settings from './pages/Settings/Settings';
+import Single from './pages/Single/Single';
 
 function App() {
   const { user } = useContext(Context);
@@ -35,8 +36,8 @@ function App() {
             {user ? <Create /> : <Register />}
           </Route>
 
-          <Route exact path='/apps/:id'>
-            <AppDetails />
+          <Route exact path='/applications/:id'>
+            <Single />
           </Route>
 
           <Route exact path='/settings'>

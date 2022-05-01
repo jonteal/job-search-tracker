@@ -38,4 +38,4 @@ const AppDetails = () => {
     )
 }
 
-export default AppDetails;
+// export default AppDetails;

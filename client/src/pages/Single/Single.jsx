@@ -1,9 +1,9 @@
-// import SinglePost from "../../components/SinglePost/SinglePost";
+import SingleApplication from "../../components/SingleApplication/SingleApplication";
 
 export default function Single() {
     return (
         <div className="single">
-            {/* <SinglePost/> */}
+            {/* <SingleApplication/> */}
         </div>
     );
 }

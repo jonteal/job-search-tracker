@@ -74,6 +74,21 @@ export default function SingleApplication() {
     return(
         <div className="singleApplication">
             <div className="singleApplicationWrapper">
+
+                {/* USER INFO */}
+                <div className="singleApplicationInfo">
+                    <span className="singleApplicationAuthor">
+                        <Link to={`/?user=${application.username}`} className='link'>
+                            <b>{application.username}</b>
+                        </Link>
+                    </span>
+                    <span className="singleApplicationDate">
+                        {new Date(application.createdAt).toDateString()}
+                    </span>
+                </div>
+
+
+                {/* UPDATE - COMPANY */}
                 {updateMode ? (
                     <input 
                         type="text" 
@@ -103,7 +118,38 @@ export default function SingleApplication() {
                         )}
                     </h1>
                 )}
+
+                {/* UPDATE - POSITION */}
+                {updateMode ? (
+                    <input 
+                        type="text" 
+                        value={position}
+                        className='singleApplicationPositionInput'
+                        onChange={(e) => setPosition(e.target.value)}
+                    />
+                ) : (
+                    <h1 className="singleApplicationCompany">
+                        {company}
+                        {application.username === user?.username && (
+                            <div>
+                                <button 
+                                    className="singlePostIcon"
+                                    onClick={() => setUpdateMode(true)}
+                                >
+                                    Update
+                                </button>
+                                <button 
+                                    className="singlePostIcon"
+                                    onClick={handleDelete}
+                                >
+                                    Update
+                                </button>
+                            </div>
+                        )}
+                    </h1>
+                )}
             </div>
         </div>
     )
 }
+
