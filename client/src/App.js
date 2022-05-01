@@ -13,6 +13,8 @@ import Single from './pages/Single/Single';
 
 function App() {
   const { user } = useContext(Context);
+
+  // const user = true;
   return (
     <Router>
     <div className='App'>

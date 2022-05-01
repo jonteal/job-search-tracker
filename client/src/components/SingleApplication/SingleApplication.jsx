@@ -123,6 +123,7 @@ export default function SingleApplication() {
                 {updateMode ? (
                     <input 
                         type="text" 
+                        placeholder="Position"
                         value={position}
                         className='singleApplicationPositionInput'
                         onChange={(e) => setPosition(e.target.value)}
@@ -150,12 +151,17 @@ export default function SingleApplication() {
 
                 {/* UPDATE - workLocation */}
                 {updateMode ? (
-                    <input 
+                    <select 
                         type="text" 
                         value={workLocation}
                         className='singleApplicationWorkLocationInput'
                         onChange={(e) => setWorkLocation(e.target.value)}
-                    />
+                    >
+                        <option value="-">-</option>
+                        <option value="Work from Home">Work from Home</option>
+                        <option value="In Office">In Office</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
                 ) : (
                     <p className="singleApplicationWorkLocation">
                         {workLocation}
@@ -167,8 +173,9 @@ export default function SingleApplication() {
                 {updateMode ? (
                     <input 
                         type="text" 
+                        placeholder="Follow Up Date"
                         value={followUpDate}
-                        className='singleApplicationFollowUpDateInput'
+                        className="singleApplicationFollowUpDateInput"
                         onChange={(e) => setFollowUpDate(e.target.value)}
                     />
                 ) : (
@@ -181,6 +188,7 @@ export default function SingleApplication() {
                 {/* UPDATE - contactName */}
                 {updateMode ? (
                     <input 
+                        placeholder="Contact Name"
                         type="text" 
                         value={contactName}
                         className='singleApplicationContactNameInput'

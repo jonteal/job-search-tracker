@@ -17,7 +17,7 @@
 
 
 import { useEffect, useState } from "react";
-import AppList from "../../components/AppList/AppList";
+import Applications from '../../components/Applications/Applications';
 import axios from "axios";
 import { useLocation } from "react-router";
 
@@ -35,7 +35,7 @@ export default function Home() {
     return (
         <>
                 <div className="home">
-                    <AppList applications={applications} />
+                    <Applications applications={applications} />
                 </div>
         </>
     );

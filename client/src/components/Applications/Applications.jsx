@@ -1,6 +1,6 @@
 import Application from "../Application/Application";
 
-export default function AppList({ applications }) {
+export default function Applications({ applications }) {
     return (
         <div className="apps">
         {applications.map((a) => (
