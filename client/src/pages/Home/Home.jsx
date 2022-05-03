@@ -29,8 +29,8 @@ export default function Home() {
         const fetchApplications = async () => {
             const res = await axios.get("/applications" + search);
             setApplications(res.data);
-    };
-    fetchApplications();
+        };
+        fetchApplications();
     }, [search]);
     return (
         <>

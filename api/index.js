@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
-// const userRoute = require('./routes/users');
+const userRoute = require('./routes/users');
 const applicationsRoute = require('./routes/applications');
 const path = require('path');
 
@@ -21,7 +21,7 @@ mongoose
     .catch((err) => console.log(err));
 
 app.use('/api/auth', authRoute);
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 app.use('/api/applications', applicationsRoute);
 
 app.listen('5000', () => {
